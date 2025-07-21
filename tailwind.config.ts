@@ -26,8 +26,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))'
+					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -85,31 +84,11 @@ export default {
 					to: {
 						height: '0'
 					}
-				},
-				'slide-in-left': {
-					'0%': { transform: 'translateX(-100%)', opacity: '0' },
-					'100%': { transform: 'translateX(0)', opacity: '1' }
-				},
-				'slide-in-right': {
-					'0%': { transform: 'translateX(100%)', opacity: '0' },
-					'100%': { transform: 'translateX(0)', opacity: '1' }
-				},
-				'glow-pulse': {
-					'0%, 100%': { boxShadow: 'var(--glass-glow)' },
-					'50%': { boxShadow: '0 0 80px hsl(var(--primary-glow) / 0.5)' }
-				},
-				'float': {
-					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
-				'slide-in-left': 'slide-in-left 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-				'slide-in-right': 'slide-in-right 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'accordion-up': 'accordion-up 0.2s ease-out'
 			},
 			backdropBlur: {
 				'xl': '24px',
