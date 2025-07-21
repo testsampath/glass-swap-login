@@ -1,11 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { LoginCard } from "@/components/LoginCard";
+import glassBg from "@/assets/glass-bg.jpg";
 
 const Index = () => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div 
+      className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${glassBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Overlay for better glassmorphism effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20"></div>
+      <div className="absolute inset-0 bg-black/10"></div>
+      
+      {/* Floating orbs for ambient effect */}
+      <div className="absolute top-20 left-20 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-primary-glow/30 rounded-full blur-2xl animate-float"></div>
+      
+      {/* Login Card */}
+      <div className="relative z-10 w-full">
+        <LoginCard isFlipped={isFlipped} onFlip={handleFlip} />
       </div>
     </div>
   );
