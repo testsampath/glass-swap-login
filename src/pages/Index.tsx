@@ -26,7 +26,7 @@ const Index = () => {
       {/* Floating orbs for ambient effect */}
       <div className="absolute top-20 left-20 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-20 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-300/30 rounded-full blur-2xl animate-bounce"></div>
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-purple-300/30 rounded-full blur-2xl"></div>
       
       {/* Login Card */}
       <div className="relative z-10 w-full">
