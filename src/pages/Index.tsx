@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { LoginCard } from "@/components/LoginCard";
-import glassBg from "@/assets/glass-bg.jpg";
 
 const Index = () => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -11,13 +10,7 @@ const Index = () => {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${glassBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900"
     >
       {/* Overlay for better glassmorphism effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-transparent to-pink-500/20"></div>
