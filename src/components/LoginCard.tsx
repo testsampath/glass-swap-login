@@ -25,7 +25,7 @@ export const LoginCard = ({ isFlipped, onFlip }: LoginCardProps) => {
       side === "left" && !isFlipped ? "translate-x-0 opacity-100" : 
       side === "right" && isFlipped ? "translate-x-0 opacity-100" : ""
     }`}>
-      <div className="animate-bounce">
+      <div>
         <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
           Welcome Back
         </h2>
