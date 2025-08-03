@@ -26,26 +26,34 @@ export const LoginCard = ({ isFlipped, onFlip }: LoginCardProps) => {
         {/* Left Side */}
         <div className="relative overflow-hidden">
           {!isFlipped ? (
-            <InfoPanel />
+            <div className="animate-slide-in-right">
+              <InfoPanel />
+            </div>
           ) : (
-            <GoogleForm 
-              credentials={credentials}
-              handleInputChange={handleInputChange}
-              onFlip={onFlip}
-            />
+            <div className="animate-slide-in-right">
+              <GoogleForm 
+                credentials={credentials}
+                handleInputChange={handleInputChange}
+                onFlip={onFlip}
+              />
+            </div>
           )}
         </div>
         
         {/* Right Side */}
         <div className="relative overflow-hidden border-l border-white/10">
           {!isFlipped ? (
-            <StandardForm 
-              credentials={credentials}
-              handleInputChange={handleInputChange}
-              onFlip={onFlip}
-            />
+            <div className="animate-fade-in">
+              <StandardForm 
+                credentials={credentials}
+                handleInputChange={handleInputChange}
+                onFlip={onFlip}
+              />
+            </div>
           ) : (
-            <InfoPanel />
+            <div className="animate-fade-in">
+              <InfoPanel />
+            </div>
           )}
         </div>
       </div>
@@ -54,7 +62,7 @@ export const LoginCard = ({ isFlipped, onFlip }: LoginCardProps) => {
 };
 
 const InfoPanel = () => (
-  <div className="flex flex-col justify-center px-12 py-16">
+  <div className="flex flex-col justify-center px-12 py-16 animate-scale-in">
     <div>
       <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-slate-400 bg-clip-text text-transparent">
         Secure Banking
@@ -91,7 +99,7 @@ interface FormProps {
 }
 
 const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => (
-  <div className="flex flex-col justify-center px-12 py-16">
+  <div className="flex flex-col justify-center px-12 py-16 animate-fade-in">
     <div className="w-full max-w-sm mx-auto space-y-6">
       <div className="text-center mb-8">
         <h3 className="text-2xl font-semibold mb-2 text-white">Sign In</h3>
@@ -148,7 +156,7 @@ const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => 
 );
 
 const GoogleForm = ({ credentials, handleInputChange, onFlip }: FormProps) => (
-  <div className="flex flex-col justify-center px-12 py-16">
+  <div className="flex flex-col justify-center px-12 py-16 animate-slide-in-right">
     <div className="w-full max-w-sm mx-auto space-y-6">
       <div className="text-center mb-8">
         <h3 className="text-2xl font-semibold mb-2 text-white">Google Sign In</h3>
