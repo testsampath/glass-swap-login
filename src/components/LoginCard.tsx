@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRightLeft, Lock, Mail, User } from "lucide-react";
+import { ArrowRightLeft, Lock, Mail, User, Shield, CreditCard, Banknote } from "lucide-react";
 
 interface LoginCardProps {
   isFlipped: boolean;
@@ -64,25 +64,39 @@ export const LoginCard = ({ isFlipped, onFlip }: LoginCardProps) => {
 const InfoPanel = () => (
   <div className="flex flex-col justify-center px-12 py-16 animate-scale-in">
     <div>
-      <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-slate-400 bg-clip-text text-transparent">
-        Secure Banking
-      </h2>
+      <div className="flex items-center gap-3 mb-6">
+        <div className="p-2 rounded-xl bg-gradient-to-r from-blue-500/20 to-slate-400/20 backdrop-blur-sm">
+          <CreditCard className="h-6 w-6 text-blue-400" />
+        </div>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-slate-300 bg-clip-text text-transparent">
+          SecureBank
+        </h2>
+      </div>
+      <h3 className="text-2xl font-semibold mb-4 text-white">
+        Welcome to Digital Banking
+      </h3>
       <p className="text-lg text-white/80 mb-8 leading-relaxed">
-        Your trusted financial partner with advanced security and seamless digital banking experience.
+        Access your accounts securely with our advanced digital banking platform. 
+        Your financial security is our top priority.
       </p>
       <div className="space-y-4">
         <div className="flex items-center gap-3 text-white/70">
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-slate-400"></div>
-          <span>Bank-grade security</span>
+          <Shield className="h-5 w-5 text-blue-400" />
+          <span>256-bit SSL encryption</span>
         </div>
         <div className="flex items-center gap-3 text-white/70">
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-slate-400"></div>
-          <span>24/7 secure access</span>
+          <Lock className="h-5 w-5 text-blue-400" />
+          <span>Multi-factor authentication</span>
         </div>
         <div className="flex items-center gap-3 text-white/70">
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-slate-400"></div>
-          <span>Protected transactions</span>
+          <Banknote className="h-5 w-5 text-blue-400" />
+          <span>FDIC insured deposits</span>
         </div>
+      </div>
+      <div className="mt-8 p-4 rounded-xl bg-white/5 border border-white/10">
+        <p className="text-sm text-white/60">
+          🔒 Your session is protected by bank-grade security protocols
+        </p>
       </div>
     </div>
   </div>
@@ -102,19 +116,19 @@ const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => 
   <div className="flex flex-col justify-center px-12 py-16 animate-fade-in">
     <div className="w-full max-w-sm mx-auto space-y-6">
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-semibold mb-2 text-white">Sign In</h3>
-        <p className="text-white/60">Enter your credentials to continue</p>
+        <h3 className="text-2xl font-semibold mb-2 text-white">Online Banking Login</h3>
+        <p className="text-white/60">Access your account securely</p>
       </div>
       
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="userId" className="text-sm font-medium text-white/80">User ID</Label>
+          <Label htmlFor="userId" className="text-sm font-medium text-white/80">Customer ID</Label>
           <div className="relative">
             <User className="absolute left-3 top-3 h-4 w-4 text-white/50" />
             <Input
               id="userId"
               type="text"
-              placeholder="Enter your user ID"
+              placeholder="Enter your customer ID"
               value={credentials.userId}
               onChange={(e) => handleInputChange("userId", e.target.value)}
               className="pl-10 bg-white/10 border-white/20 backdrop-blur-sm text-white placeholder:text-white/50 focus:bg-white/15 transition-all duration-300"
@@ -123,13 +137,13 @@ const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => 
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="password" className="text-sm font-medium text-white/80">Password</Label>
+          <Label htmlFor="password" className="text-sm font-medium text-white/80">Online Banking Password</Label>
           <div className="relative">
             <Lock className="absolute left-3 top-3 h-4 w-4 text-white/50" />
             <Input
               id="password"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Enter your banking password"
               value={credentials.password}
               onChange={(e) => handleInputChange("password", e.target.value)}
               className="pl-10 bg-white/10 border-white/20 backdrop-blur-sm text-white placeholder:text-white/50 focus:bg-white/15 transition-all duration-300"
@@ -139,8 +153,12 @@ const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => 
       </div>
       
       <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-        Sign In
+        Access My Account
       </Button>
+      
+      <div className="text-center text-xs text-white/50 mt-4">
+        <p>Protected by 256-bit SSL encryption</p>
+      </div>
       
       <div className="text-center pt-4">
         <button 
@@ -148,7 +166,7 @@ const StandardForm = ({ credentials, handleInputChange, onFlip }: FormProps) => 
           className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-blue-300 transition-colors duration-300"
         >
           <ArrowRightLeft className="h-4 w-4" />
-          Switch to Google Sign In
+          Switch to Business Login
         </button>
       </div>
     </div>
@@ -159,19 +177,19 @@ const GoogleForm = ({ credentials, handleInputChange, onFlip }: FormProps) => (
   <div className="flex flex-col justify-center px-12 py-16 animate-slide-in-right">
     <div className="w-full max-w-sm mx-auto space-y-6">
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-semibold mb-2 text-white">Google Sign In</h3>
-        <p className="text-white/60">Use your Google account to continue</p>
+        <h3 className="text-2xl font-semibold mb-2 text-white">Business Banking</h3>
+        <p className="text-white/60">Access your business account</p>
       </div>
       
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="googleId" className="text-sm font-medium text-white/80">Google ID</Label>
+          <Label htmlFor="googleId" className="text-sm font-medium text-white/80">Business Account ID</Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-3 h-4 w-4 text-white/50" />
+            <User className="absolute left-3 top-3 h-4 w-4 text-white/50" />
             <Input
               id="googleId"
-              type="email"
-              placeholder="Enter your Google email"
+              type="text"
+              placeholder="Enter your business account ID"
               value={credentials.googleId}
               onChange={(e) => handleInputChange("googleId", e.target.value)}
               className="pl-10 bg-white/10 border-white/20 backdrop-blur-sm text-white placeholder:text-white/50 focus:bg-white/15 transition-all duration-300"
@@ -181,7 +199,7 @@ const GoogleForm = ({ credentials, handleInputChange, onFlip }: FormProps) => (
       </div>
       
       <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
-        Continue with Google
+        Access Business Account
       </Button>
       
       <div className="text-center pt-4">
@@ -190,7 +208,7 @@ const GoogleForm = ({ credentials, handleInputChange, onFlip }: FormProps) => (
           className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-blue-300 transition-colors duration-300"
         >
           <ArrowRightLeft className="h-4 w-4" />
-          Back to Standard Sign In
+          Back to Personal Banking
         </button>
       </div>
     </div>
