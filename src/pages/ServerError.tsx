@@ -13,9 +13,9 @@ const ServerError = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-destructive/20 via-background to-destructive/10 relative overflow-hidden">
-      {/* Background blur effect */}
-      <div className="absolute inset-0 bg-[url('/src/assets/glass-bg.jpg')] bg-cover bg-center opacity-20"></div>
-      <div className="absolute inset-0 backdrop-blur-3xl"></div>
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-destructive/15 via-transparent to-orange-500/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-red-500/5 via-transparent to-slate-500/10"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center p-8 bg-card/30 backdrop-blur-xl border border-border/50 rounded-3xl shadow-2xl max-w-lg mx-4 animate-scale-in">

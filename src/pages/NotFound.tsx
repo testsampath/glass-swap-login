@@ -15,9 +15,9 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/20 via-background to-accent/20 relative overflow-hidden">
-      {/* Background blur effect */}
-      <div className="absolute inset-0 bg-[url('/src/assets/glass-bg.jpg')] bg-cover bg-center opacity-30"></div>
-      <div className="absolute inset-0 backdrop-blur-3xl"></div>
+      {/* Background gradient effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/15"></div>
+      <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/5 via-transparent to-slate-500/10"></div>
       
       {/* Content */}
       <div className="relative z-10 text-center p-8 bg-card/30 backdrop-blur-xl border border-border/50 rounded-3xl shadow-2xl max-w-md mx-4 animate-scale-in">
